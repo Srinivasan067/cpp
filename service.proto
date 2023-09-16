@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package httpgrpc;
+
+service HttpService {
+    rpc GetRequest (HttpRequest) returns (HttpResponse);
+    rpc PostRequest (HttpRequest) returns (HttpResponse);
+}
+
+message HttpRequest {
+    string method = 1;
+    string url = 2;
+    string body = 3;
+}
+
+message HttpResponse {
+    string status = 1;
+    string body = 2;
+}
